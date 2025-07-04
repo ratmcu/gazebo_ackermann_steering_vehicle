@@ -32,7 +32,10 @@ void JoystickController::listener_callback(const sensor_msgs::msg::Joy::SharedPt
 {
   // Set the desired angle and desired velocity based on the joystick's axis
   steering_angle_ = msg->axes[0] * max_steering_angle_;
-  velocity_ = msg->axes[3] * max_velocity_;
+  auto num_axes = msg->axes.size();
+  auto fwd_idx = num_axes - 2;
+  auto bwd_idx = num_axes - 1;
+  velocity_ = ((-msg->axes[fwd_idx] + msg->axes[bwd_idx])) * max_velocity_;
 }
 
 void JoystickController::timer_callback()
