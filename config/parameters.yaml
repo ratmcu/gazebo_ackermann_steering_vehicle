@@ -14,8 +14,8 @@
     # Kinematics and dynamics params
     max_steering_angle: 0.6108652 # Maximum steering angle of the vehicle [rad]
     max_steering_angular_velocity: 1.570796 # Maximum steering angular velocity [rad/s]
-    max_steering_effort: 1.0 # Maximum steering torque [Nm]
-    max_velocity: 2.0 # Maximum wheel velocity [m/s]
+    max_steering_effort: 20.0 # Maximum steering torque [Nm]
+    max_velocity: 0.125 # Maximum wheel velocity [m/s]
     max_effort: 10.0 # Maximum wheel torque [Nm]
 
     # Camera and image params
