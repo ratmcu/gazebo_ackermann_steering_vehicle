@@ -54,6 +54,7 @@
   <xacro:property name="body_inertia_y" value="${1.0/12.0 * body_mass * (body_length*body_length + body_height*body_height)}"/>
   <xacro:property name="body_inertia_z" value="${1.0/12.0 * body_mass * (body_length*body_length + body_width*body_width)}"/>
   <xacro:property name="wheel_separation" value="${body_width + wheel_width}"/>
+  <xacro:property name="wheel_offset_front" value="${body_length/2 - (wheel_radius * 2)}"/>
   <xacro:property name="wheel_offset" value="${body_length/2 - wheel_radius}"/>
   <xacro:property name="wheel_mass" value="${wheel_density * PI * wheel_radius * wheel_radius * wheel_width}"/>
   <xacro:property name="wheel_inertia_x" value="${1.0/12.0 * wheel_mass * (3*wheel_radius*wheel_radius + wheel_width*wheel_width)}"/>
@@ -289,7 +290,7 @@
 
   <!-- Front Left Steering Joint -->
   <joint name="front_left_steering_joint" type="revolute">
-    <origin xyz="${wheel_offset} ${wheel_separation/2} -${wheel_radius/2}" rpy="0 0 0"/>
+    <origin xyz="${wheel_offset_front} ${wheel_separation/2} -${wheel_radius/2}" rpy="0 0 0"/>
     <parent link="body_link"/>
     <child link="front_left_steering_link"/>
     <axis xyz="0 0 1"/>
@@ -309,7 +310,7 @@
 
   <!-- Front Right Steering Joint -->
   <joint name="front_right_steering_joint" type="revolute">
-    <origin xyz="${wheel_offset} ${-wheel_separation/2} -${wheel_radius/2}" rpy="0 0 0"/>
+    <origin xyz="${wheel_offset_front} ${-wheel_separation/2} -${wheel_radius/2}" rpy="0 0 0"/>
     <parent link="body_link"/>
     <child link="front_right_steering_link"/>
     <axis xyz="0 0 1"/>
