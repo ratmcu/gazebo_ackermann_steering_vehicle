@@ -20,7 +20,7 @@ add_executable(joystick_controller src/joystick_controller.cpp)
 ament_target_dependencies(joystick_controller rclcpp std_msgs sensor_msgs)
 
 install(
-  DIRECTORY launch model config
+  DIRECTORY launch model config worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
